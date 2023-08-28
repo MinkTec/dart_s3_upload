@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:aws_s3_upload/aws_s3_upload.dart';
+import 'package:dart_s3_upload/src/content.dart';
 import 'package:http/http.dart';
 
 class ClientResponse {

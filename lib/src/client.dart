@@ -1,9 +1,9 @@
-import 'package:aws_s3_upload/enum/acl.dart';
+import 'package:dart_s3_upload/enum/acl.dart';
 import 'package:amazon_cognito_identity_dart_2/sig_v4.dart';
-import 'package:aws_s3_upload/src/client_response.dart';
-import 'package:aws_s3_upload/src/content.dart';
-import 'package:aws_s3_upload/src/policy.dart';
-import 'package:aws_s3_upload/src/utils.dart';
+import 'package:dart_s3_upload/src/client_response.dart';
+import 'package:dart_s3_upload/src/content.dart';
+import 'package:dart_s3_upload/src/policy.dart';
+import 'package:dart_s3_upload/src/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:recase/recase.dart';
 import 'package:optionals/optionals.dart';
@@ -23,8 +23,7 @@ abstract class S3Client {
 
   String get endpoint;
 
-  Future<Result<ClientResponse>> upload(
-      UploadableContent content) async {
+  Future<Result<ClientResponse>> upload(UploadableContent content) async {
     final req = await _request(content);
     req.files.add(await content.filestream);
 

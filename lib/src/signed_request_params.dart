@@ -1,5 +1,7 @@
 import 'package:amazon_cognito_identity_dart_2/sig_v4.dart';
-import 'package:aws_s3_upload/aws_s3_upload.dart';
+
+import './client.dart';
+import './content.dart';
 
 class SignedRequestParams {
   final Uri uri;
@@ -47,4 +49,3 @@ $payload''';
     });
   }
 }
-
