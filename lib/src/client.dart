@@ -101,7 +101,7 @@ class AwsClient extends S3Client {
     this.acl = ACL.private,
   });
 
-  String get endpoint => 'https://$bucket.s3.$region.amazanaws.com';
+  String get endpoint => 'https://$bucket.s3.$region.amazonaws.com';
 }
 
 class OVHClient extends S3Client {
