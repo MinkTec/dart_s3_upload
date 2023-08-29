@@ -24,7 +24,12 @@ class ClientResponse {
           reasonPhrase: response.reasonPhrase,
           content: content);
 
-  bool get success => 200 <= statusCode && statusCode < 300;
+  bool get success => statusCode < 300;
 
   String get key => content.uploadKey;
+
+  @override
+  String toString() {
+    return """ClientResponse($statusCode${reasonPhrase == null ? "" : ", $reasonPhrase"})""";
+  }
 }

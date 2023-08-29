@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
+import 'package:mink_utils/mink_utils.dart';
 import 'dart:io' show File;
 
 abstract class UploadableContent {
@@ -18,6 +19,11 @@ abstract class UploadableContent {
       this.metadata,
       required this.directory,
       required this.filename});
+
+  @override
+  String toString() {
+    return "UploadableContent($directory/$filename)";
+  }
 }
 
 class UploadableString extends UploadableContent {
@@ -35,10 +41,21 @@ class UploadableString extends UploadableContent {
   Future<int> get length async => _string.length;
 
   UploadableString(this._string,
-      {super.contentType,
+      {super.contentType = "text/plain",
       super.metadata,
-      required super.directory,
-      required super.filename});
+      String? key,
+      String? directory,
+      String? filename})
+      : super(
+            directory: directory ?? PathBuf(key!).basepath,
+            filename: filename ?? PathBuf(key!).end) {
+    assert(key != null || (directory != null && filename != null));
+  }
+
+  @override
+  String toString() {
+    return "UploadableString($directory/$filename, length: ${_string.length})";
+  }
 }
 
 class UploadableFile extends UploadableContent {
@@ -61,4 +78,9 @@ class UploadableFile extends UploadableContent {
       String? filename,
       required super.directory})
       : super(filename: filename ?? path.basename(_file.path));
+
+  @override
+  String toString() {
+    return "UploadableString($directory/$filename, path: ${_file.path})";
+  }
 }

@@ -26,7 +26,6 @@ abstract class S3Client {
   Future<Result<ClientResponse>> upload(UploadableContent content) async {
     final req = await _request(content);
     req.files.add(await content.filestream);
-
     try {
       final res = await req.send();
       return Result(await ClientResponse.fromResponse(res, content));
@@ -56,7 +55,6 @@ abstract class S3Client {
     final signingKey =
         SigV4.calculateSigningKey(secretKey, policy.datetime, region, 's3');
     final signature = SigV4.calculateSignature(signingKey, policy.encode());
-    print(policy);
 
     req.fields['key'] = policy.key;
     req.fields['acl'] = aclToString(acl);

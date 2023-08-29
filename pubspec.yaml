@@ -12,4 +12,6 @@ dependencies:
   http: ^0.13.3
   recase: ^4.1.0
   optionals:
-    git: https://github.com/MinkTec/dart_optionals
+    path: ../optionals
+  mink_utils:
+    path: ../mink_utils
