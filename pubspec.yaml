@@ -12,6 +12,6 @@ dependencies:
   http: ^0.13.3
   recase: ^4.1.0
   optionals:
-    path: ../optionals
+    path: ../dart_optionals
   mink_utils:
     path: ../mink_utils
