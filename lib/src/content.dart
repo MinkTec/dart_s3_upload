@@ -21,9 +21,7 @@ abstract class UploadableContent {
       required this.filename});
 
   @override
-  String toString() {
-    return "UploadableContent($directory/$filename)";
-  }
+  String toString() => "UploadableContent($directory/$filename)";
 }
 
 class UploadableString extends UploadableContent {
@@ -53,9 +51,8 @@ class UploadableString extends UploadableContent {
   }
 
   @override
-  String toString() {
-    return "UploadableString($directory/$filename, length: ${_string.length})";
-  }
+  String toString() =>
+      "UploadableString($directory/$filename, length: ${_string.length})";
 }
 
 class UploadableFile extends UploadableContent {
@@ -80,7 +77,6 @@ class UploadableFile extends UploadableContent {
       : super(filename: filename ?? path.basename(_file.path));
 
   @override
-  String toString() {
-    return "UploadableString($directory/$filename, path: ${_file.path})";
-  }
+  String toString() =>
+      "UploadableFile($directory/$filename, path: ${_file.path})";
 }
