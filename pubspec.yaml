@@ -9,9 +9,9 @@ environment:
 
 dependencies:
   amazon_cognito_identity_dart_2: ^1.0.3
-  http: ^0.13.3
+  http: ^0.13.6
   recase: ^4.1.0
   optionals:
-    path: ../dart_optionals
+    git: git@github.com:MinkTec/dart_optionals.git
   mink_utils:
-    path: ../mink_utils
+    git: git@github.com:MinkTec/mink_utils.git
