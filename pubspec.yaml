@@ -8,8 +8,8 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  amazon_cognito_identity_dart_2: ^1.0.3
-  http: ^0.13.6
+  amazon_cognito_identity_dart_2: ^3.6.0
+  http: ^1.1.0
   recase: ^4.1.0
   optionals:
     git: git@github.com:MinkTec/dart_optionals.git
